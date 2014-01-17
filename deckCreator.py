@@ -1,8 +1,6 @@
-# A user only has access to their "Game Hand" after activating a "Game"
-# A game will create a "Deck" and pull cards from it as needed
-# The "Game Hand" will have functions applied to it from the "Game"
-
-#Creates a deck
+# Accepts input from gameNameGame
+# Initiated by gameNameGame
+# Creates Deck and Gives Cards
 import hashlib
 import random
 import itertools
@@ -42,11 +40,7 @@ class Deck:
         dealt_card = self.d[self.ccount]
         self.ccount += 1
         return dealt_card
+        
 
-
-
-test_deck = Deck(1, "23423432423432", "2342352345435435")
-print test_deck.next_card()
-print test_deck.next_card()
-print test_deck.next_card()
-print test_deck.d
+mydeck = Deck(124,"12312","124312")
+print mydeck.next_card()
