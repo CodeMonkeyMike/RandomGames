@@ -42,25 +42,43 @@ def flush(hand):
 	s = suit(hand[0])
 	return all(suit(card) == s for card in hand)
 
-def strait(hand):
+def pair(hand):
 	c = 0
 	p = rank_num(hand[0])
 	a = []
 	for card in hand:
-		sn = suit_num(card)
+		sn = rank_num(card)
+		print c
 		if sn == p:
 			c += 1
 		else:
 			if c > 1:
-				a.append([c,sn])
+				a.append([c,p])
 			c = 1
+			p = sn
+	if c > 1:
+		a.append([c,p])
+	return a
 
+def strait(hand):
+	t = 0
+	return [t += rank_num(card) for card in hand]
 
 my_deck = deckCreator.Deck(124,"12312","124312")
 
 print my_deck.d
 
-print merge_sort(my_deck.d)
+hand = []
+hand.append(my_deck.next_card())
+hand.append(my_deck.next_card())
+hand.append(my_deck.next_card())
+hand.append(my_deck.next_card())
+hand.append(my_deck.next_card())
+
+print hand
+print merge_sort(hand)
+print pair(hand)
+print strait(hand)
 # def check_hand(hand):
 
 
